@@ -24,7 +24,7 @@ Good tests give you the ability to quickly analyze whether new code breaks an ex
 
 # Development Strategy
 
-For a refresher (or reference) before you begin writing code, we recommend reviewing the content from [JavaScript Testing](https://www.udacity.com/course/javascript-testing--ud549). Your project will be evaluated by a Udacity code reviewer according to the [Feed Reader Testing project rubric](https://review.udacity.com/#!/rubrics/18/view). Please review for detailed project requirements.
+For a refresher (or reference) before you begin writing code, it's recommend reviewing the content from [JavaScript Testing](https://www.udacity.com/course/javascript-testing--ud549).
 
 1. Familiarize yourself with the starter code
     * Open up `index.html` and review the functionality of the application within your browser
@@ -63,12 +63,5 @@ For a refresher (or reference) before you begin writing code, we recommend revie
 Additionally, note that:
 
  * No test should be dependent on the results of another
- * Callbacks should be used to ensure that feeds are loaded before they are tested
  * Error handling should be implemented for undefined variables and out-of-bound array access
  * When complete, all of your tests should pass
-
-When you're all finished, write a `README` file detailing all steps required to successfully run the application. If you have added additional tests, provide documentation for what these future features are and what the tests are checking for.
-
-# Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.

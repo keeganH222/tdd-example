@@ -39,38 +39,38 @@ const init = () => {
  * This function all supports a callback as the second parameter
  * which will be called after everything has run successfully.
  */
-const loadFeed = (id, cb) => {
+const loadFeed = (id) => {
   let feedUrl = allFeeds[id].url,
       feedName = allFeeds[id].name;
 
-  fetch("https://rsstojson.udacity.com/parseFeed", {
+return fetch("https://rsstojson.udacity.com/parseFeed", {
     method: "POST",
     body: JSON.stringify({url: feedUrl}),
     headers: {
         'Content-Type': 'application/json'
     },
-  }).then(response => response.json())
-    .then(result => {
+  }).then(response => {
+    return response.json();
+  }).then(result => {
+    let container = document.querySelector('.feed'),
+    title = document.querySelector('.header-title'),
+    entries = result.feed.entries,
+    entriesLen = entries.length,
+    entryTemplate = Handlebars.compile(document.querySelector('.tpl-entry').innerHTML);
 
-      let container = document.querySelector('.feed'),
-      title = document.querySelector('.header-title'),
-      entries = result.feed.entries,
-      entriesLen = entries.length,
-      entryTemplate = Handlebars.compile(document.querySelector('.tpl-entry').innerHTML);
+    title.textContent = feedName;   // Set the header text
+    container.innerHTML = "";      // Empty out all previous entries
 
-      title.textContent = feedName;   // Set the header text
-      container.innerHTML = "";      // Empty out all previous entries
-
-      /* Loop through the entries we just loaded via the Google
-       * Feed Reader API. We'll then parse that entry against the
-       * entryTemplate (created above using Handlebars) and append
-       * the resulting HTML to the list of entries on the page.
-       */
-      entries.forEach(entry => {
-          container.insertAdjacentHTML('afterbegin', entryTemplate(entry));
-      });
-     })
- }
+    /* Loop through the entries we just loaded via the Google
+      * Feed Reader API. We'll then parse that entry against the
+      * entryTemplate (created above using Handlebars) and append
+      * the resulting HTML to the list of entries on the page.
+      */
+    entries.forEach(entry => {
+        container.insertAdjacentHTML('afterbegin', entryTemplate(entry));
+    });
+  });
+}
 
 /* Google API: Loads the Feed Reader API and defines what function
  * to call when the Feed Reader API is done loading.
@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
   * above using Handlebars) and append it to the list of all
   * available feeds within the menu.
   */
-  allFeeds.forEach( (feed) => {
+  allFeeds.forEach(feed => {
     feed.id = feedId;
-    feedList.insertAdjacentHTML('afterbegin',feedItemTemplate(feed));
+    feedList.insertAdjacentHTML('afterbegin', feedItemTemplate(feed));
     feedId++;
   });
 
