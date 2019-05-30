@@ -32,6 +32,12 @@ describe('RSS Feeds', () => {
     * in the allFeeds object and ensures it has a name defined
     * and that the name is not empty.
     */
+
+    /* TODO: Write a test that loops through each feed
+    * in the allFeeds object and ensures it has a name defined
+    * and that the name is not empty.
+    */
+
 });
 
 
@@ -63,5 +69,9 @@ describe('RSS Feeds', () => {
   /* TODO: Write a test that ensures when a new feed is loaded
     * by the loadFeed function that the content actually changes.
     * Remember, loadFeed() is asynchronous.
+    */
+
+    /* Write a test to make sure that the content in the element 'header-title'
+    * matches the content found in the 'a' link that was clicked
     */
 
