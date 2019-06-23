@@ -50,12 +50,12 @@ describe("The menu", () => {
     * should have two expectations: does the menu display when
     * clicked and does it hide when clicked again.
     */
-  it("does the Menu functionality work", () => {
+  /*it("does the Menu functionality work", () => {
     menuIcon.click();
     expect(menu.classList.contains('menu-hidden')).toBe(false);
     menuIcon.click();
     expect(menu.classList.contains('menu-hidden')).toBe(true);
-  })
+  })*/
 })
 
 /* TODO: Write a new test suite named "Initial Entries" */
